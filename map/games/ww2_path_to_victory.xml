@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE game SYSTEM "game.dtd">
 <game>
-        <info name="WW2 Path to Victory" version="6.4"/>
+        <info name="WW2 Path to Victory 1942" version="0.1"/>
         <loader javaClass="games.strategy.triplea.TripleA"/>
-	<triplea minimumVersion="1.8"/>
+	<triplea minimumVersion="2.5"/>
   	<diceSides value="6"/>
         <map>
                 <!-- Territory Definitions -->
@@ -14895,18 +14895,18 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
                         <territoryOwner territory="Egypt" owner="British"/>
                         <territoryOwner territory="Malta" owner="British"/>
                         <territoryOwner territory="Newfoundland Labrador" owner="British"/>
-                        <territoryOwner territory="Shan State" owner="UK_Pacific"/>
-                        <territoryOwner territory="Western India" owner="UK_Pacific"/>
-                        <territoryOwner territory="Malaya" owner="UK_Pacific"/>
-                        <territoryOwner territory="Eastern India" owner="UK_Pacific"/>
-                        <territoryOwner territory="Gilbert Islands" owner="UK_Pacific"/>
-                        <territoryOwner territory="Central India" owner="UK_Pacific"/>
-                        <territoryOwner territory="Borneo" owner="UK_Pacific"/>
-                        <territoryOwner territory="Fiji" owner="UK_Pacific"/>
-                        <territoryOwner territory="Samoa" owner="UK_Pacific"/>
-                        <territoryOwner territory="Ceylon" owner="UK_Pacific"/>
-                        <territoryOwner territory="Burma" owner="UK_Pacific"/>
- 			<territoryOwner territory="Baluchistan" owner="UK_Pacific"/>
+                        <territoryOwner territory="Shan State" owner="ANZAC"/>
+                        <territoryOwner territory="Western India" owner="ANZAC"/>
+                        <territoryOwner territory="Malaya" owner="ANZAC"/>
+                        <territoryOwner territory="Eastern India" owner="ANZAC"/>
+                        <territoryOwner territory="Gilbert Islands" owner="ANZAC"/>
+                        <territoryOwner territory="Central India" owner="ANZAC"/>
+                        <territoryOwner territory="Borneo" owner="ANZAC"/>
+                        <territoryOwner territory="Fiji" owner="ANZAC"/>
+                        <territoryOwner territory="Samoa" owner="ANZAC"/>
+                        <territoryOwner territory="Ceylon" owner="ANZAC"/>
+                        <territoryOwner territory="Burma" owner="ANZAC"/>
+ 			<territoryOwner territory="Baluchistan" owner="ANZAC"/>
                         <territoryOwner territory="Northern Italy" owner="Italians"/>
                         <territoryOwner territory="Libya" owner="Italians"/>
                         <territoryOwner territory="Sicily" owner="Italians"/>
@@ -15232,25 +15232,25 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <unitPlacement unitType="destroyer" territory="114 Sea Zone" quantity="1" owner="British"/>
       <unitPlacement unitType="battleship" territory="114 Sea Zone" quantity="1" owner="British"/>
       <unitPlacement unitType="cruiser" territory="114 Sea Zone" quantity="1" owner="British"/>
-      <unitPlacement unitType="infantry" territory="Kwangtung" quantity="2" owner="British"/>
-      <unitPlacement unitType="harbour" territory="Kwangtung" quantity="1" owner="UK_Pacific"/>
-      <unitPlacement unitType="infantry" territory="Malaya" quantity="3" owner="British"/>
-      <unitPlacement unitType="harbour" territory="Malaya" quantity="1" owner="UK_Pacific"/>
-      <unitPlacement unitType="infantry" territory="Burma" quantity="2" owner="British"/>
-      <unitPlacement unitType="infantry" territory="Borneo" quantity="1" owner="British"/>
-      <unitPlacement unitType="fighter" territory="Burma" quantity="1" owner="British"/>
-      <unitPlacement unitType="infantry" territory="Eastern India" quantity="6" owner="British"/>
-      <unitPlacement unitType="artillery" territory="Eastern India" quantity="1" owner="British"/>
-      <unitPlacement unitType="aaGun" territory="Eastern India" quantity="3" owner="British"/>
-      <unitPlacement unitType="fighter" territory="Eastern India" quantity="1" owner="British"/>
-      <unitPlacement unitType="tactical_bomber" territory="Eastern India" quantity="1" owner="British"/>
-      <unitPlacement unitType="airfield" territory="Eastern India" quantity="1" owner="UK_Pacific"/>
-      <unitPlacement unitType="harbour" territory="Eastern India" quantity="1" owner="UK_Pacific"/>
-      <unitPlacement unitType="factory_major" territory="Eastern India" quantity="1" owner="UK_Pacific"/>
-      <unitPlacement unitType="battleship" territory="132 Sea Zone" quantity="1" owner="British"/>
-      <unitPlacement unitType="destroyer" territory="40 Sea Zone" quantity="1" owner="British"/>
-      <unitPlacement unitType="cruiser" territory="40 Sea Zone" quantity="1" owner="British"/>
-      <unitPlacement unitType="transport" territory="40 Sea Zone" quantity="1" owner="British"/>
+      <unitPlacement unitType="infantry" territory="Kwangtung" quantity="2" owner="ANZAC"/>
+      <unitPlacement unitType="harbour" territory="Kwangtung" quantity="1" owner="ANZAC"/>
+      <unitPlacement unitType="infantry" territory="Malaya" quantity="3" owner="ANZAC"/>
+      <unitPlacement unitType="harbour" territory="Malaya" quantity="1" owner="ANZAC"/>
+      <unitPlacement unitType="infantry" territory="Burma" quantity="2" owner="ANZAC"/>
+      <unitPlacement unitType="infantry" territory="Borneo" quantity="1" owner="ANZAC"/>
+      <unitPlacement unitType="fighter" territory="Burma" quantity="1" owner="ANZAC"/>
+      <unitPlacement unitType="infantry" territory="Eastern India" quantity="6" owner="ANZAC"/>
+      <unitPlacement unitType="artillery" territory="Eastern India" quantity="1" owner="ANZAC"/>
+      <unitPlacement unitType="aaGun" territory="Eastern India" quantity="3" owner="ANZAC"/>
+      <unitPlacement unitType="fighter" territory="Eastern India" quantity="1" owner="ANZAC"/>
+      <unitPlacement unitType="tactical_bomber" territory="Eastern India" quantity="1" owner="ANZAC"/>
+      <unitPlacement unitType="airfield" territory="Eastern India" quantity="1" owner="ANZAC"/>
+      <unitPlacement unitType="harbour" territory="Eastern India" quantity="1" owner="ANZAC"/>
+      <unitPlacement unitType="factory_major" territory="Eastern India" quantity="1" owner="ANZAC"/>
+      <unitPlacement unitType="battleship" territory="132 Sea Zone" quantity="1" owner="ANZAC"/>
+      <unitPlacement unitType="destroyer" territory="40 Sea Zone" quantity="1" owner="ANZAC"/>
+      <unitPlacement unitType="cruiser" territory="40 Sea Zone" quantity="1" owner="ANZAC"/>
+      <unitPlacement unitType="transport" territory="40 Sea Zone" quantity="1" owner="ANZAC"/>
       <!-- French -->
       <unitPlacement unitType="infantry" territory="France" quantity="6" owner="French"/>
       <unitPlacement unitType="artillery" territory="France" quantity="1" owner="French"/>
@@ -16177,4 +16177,5 @@ Revised Game Notes to clarify that the harbor in Southern France may be used by 
                 </property>
         </propertyList>
 </game>
+
 
