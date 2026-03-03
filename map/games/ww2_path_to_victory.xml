@@ -1468,10 +1468,8 @@
       <step name="britishTechActivation" delegate="tech_activation" player="British"/>
       <step name="britishPurchase" delegate="purchase" player="British"/>
       <!--<step name="UK_PacificTech" delegate="tech" player="UK_Pacific"/>-->
-
       <step name="britishPolitics" delegate="politics" player="British"/>
       <step name="britishCombatMove" player="British" delegate="move">
-
       <step name="britishAirborneCombatMove" delegate="specialCombatMove" player="British" display="Airborne Attack Move"/>
       <step name="britishBattle" delegate="battle" player="British"/>
       <step name="britishNonCombatMove" delegate="move" player="British" display="Non Combat Move">
@@ -1513,8 +1511,9 @@
       <step name="frenchPlace" delegate="place" player="French"/>
       <step name="frenchEndTurn" delegate="endTurn" player="French">
         <stepProperty name="turnSummaryPlayers" value="ANZAC:French"/>
-      </step>
+      	</step>
       <step name="endRoundStep" delegate="endRound"/>
+	   	</step>
     </sequence>
   </gamePlay>
        <production>
@@ -16099,6 +16098,7 @@ Revised Game Notes to clarify that the harbor in Southern France may be used by 
                 </property>
         </propertyList>
 </game>
+
 
 
 
