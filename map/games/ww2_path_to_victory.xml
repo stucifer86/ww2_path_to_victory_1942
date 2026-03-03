@@ -1317,7 +1317,6 @@
     <player name="Americans" optional="false"/>
     <player name="Chinese" optional="false"/>
     <player name="British" optional="false"/>
-    <player name="UK_Pacific" optional="false"/>
     <player name="Italians" optional="false"/>
     <player name="ANZAC" optional="false"/>
     <player name="French" optional="false"/>
@@ -1331,7 +1330,6 @@
     <alliance player="Americans" alliance="Allies"/>
     <alliance player="Chinese" alliance="Allies"/>
     <alliance player="British" alliance="Allies"/>
-    <alliance player="UK_Pacific" alliance="Allies"/>
     <alliance player="ANZAC" alliance="Allies"/>
     <alliance player="French" alliance="Allies"/>
     <alliance player="Germans" alliance="Axis"/>
@@ -1470,26 +1468,16 @@
       <step name="britishTechActivation" delegate="tech_activation" player="British"/>
       <step name="britishPurchase" delegate="purchase" player="British"/>
       <!--<step name="UK_PacificTech" delegate="tech" player="UK_Pacific"/>-->
-      <step name="UK_PacificTechActivation" delegate="tech_activation" player="UK_Pacific"/>
-      <step name="UK_PacificPurchase" delegate="purchase" player="UK_Pacific"/>
+
       <step name="britishPolitics" delegate="politics" player="British"/>
       <step name="britishCombatMove" player="British" delegate="move">
-        <stepProperty name="combinedTurns" value="British:UK_Pacific"/>
-      </step>
+
       <step name="britishAirborneCombatMove" delegate="specialCombatMove" player="British" display="Airborne Attack Move"/>
       <step name="britishBattle" delegate="battle" player="British"/>
       <step name="britishNonCombatMove" delegate="move" player="British" display="Non Combat Move">
-        <stepProperty name="combinedTurns" value="British:UK_Pacific"/>
-      </step>
       <step name="britishNoAirCheckPlace" delegate="placeNoAirCheck" player="British"/>
       <step name="britishEndTurn" delegate="endTurn" player="British">
-        <stepProperty name="skipPosting" value="true"/>
-      </step>
-      <step name="UK_PacificPlace" delegate="place" player="UK_Pacific">
-        <stepProperty name="combinedTurns" value="British:UK_Pacific"/>
-      </step>
-      <step name="UK_PacificEndTurn" delegate="endTurn" player="UK_Pacific">
-        <stepProperty name="turnSummaryPlayers" value="Americans:Chinese:British:UK_Pacific"/>
+        <stepProperty name="turnSummaryPlayers" value="Americans:Chinese:British"/>
       </step>
       <!-- Italians Game Sequence -->
       <step name="italiansTech" delegate="tech" player="Italians"/>
@@ -1842,7 +1830,7 @@
     <playerProduction player="Americans" frontier="production"/>
     <playerProduction player="Chinese" frontier="productionChinese_Burma_Road_Open"/>
     <playerProduction player="British" frontier="production"/>
-    <playerProduction player="UK_Pacific" frontier="production"/>
+    
     <playerProduction player="French" frontier="production"/>
     <playerProduction player="Germans" frontier="production"/>
     <playerProduction player="Italians" frontier="production"/>
@@ -1853,7 +1841,7 @@
     <!-- Chinese are not allowed to repair
 				<playerRepair player="Chinese" frontier="repair"/> -->
     <playerRepair player="British" frontier="repair"/>
-    <playerRepair player="UK_Pacific" frontier="repair"/>
+    
     <playerRepair player="ANZAC" frontier="repair"/>
     <playerRepair player="French" frontier="repair"/>
     <playerRepair player="Germans" frontier="repair"/>
@@ -1985,24 +1973,7 @@
         <tech name="Improved_Mech_Inf"/>
       </category>
     </playerTech>
-    <playerTech player="UK_Pacific">
-      <category name="Air and Naval Advances">
-        <tech name="superSub"/>
-        <tech name="jetPower"/>
-        <tech name="shipyards"/>
-        <tech name="aARadar"/>
-        <tech name="longRangeAir"/>
-        <tech name="heavyBomber"/>
-      </category>
-      <category name="Land and Production Advances">
-        <tech name="improvedArtillerySupport"/>
-        <tech name="rocket"/>
-        <tech name="Airborne_Forces"/>
-        <tech name="increasedFactoryProduction"/>
-        <!--<tech name="warBonds"/>-->
-        <tech name="Improved_Mech_Inf"/>
-      </category>
-    </playerTech>
+
     <playerTech player="Italians">
       <category name="Air and Naval Advances">
         <tech name="superSub"/>
@@ -2178,18 +2149,7 @@
       <option name="increasedFactoryProduction" value="false"/>
       <option name="warBonds" value="false"/>
     </attachment>
-    <attachment name="techAttachment" attachTo="UK_Pacific" javaClass="games.strategy.triplea.attachments.TechAttachment" type="player">
-      <option name="superSub" value="false"/>
-      <option name="jetPower" value="false"/>
-      <option name="shipyards" value="false"/>
-      <option name="aARadar" value="false"/>
-      <option name="longRangeAir" value="false"/>
-      <option name="heavyBomber" value="false"/>
-      <option name="improvedArtillerySupport" value="false"/>
-      <option name="rocket" value="false"/>
-      <option name="increasedFactoryProduction" value="false"/>
-      <option name="warBonds" value="false"/>
-    </attachment>
+
     <attachment name="techAttachment" attachTo="Italians" javaClass="games.strategy.triplea.attachments.TechAttachment" type="player">
       <option name="superSub" value="false"/>
       <option name="jetPower" value="false"/>
@@ -7032,9 +6992,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
     <attachment name="conditionAttachment_Russians_1_Lose_Russia" attachTo="Germans" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
       <option name="alliedOwnershipTerritories" value="Russia" count="1"/>
     </attachment>
-    <attachment name="conditionAttachment_UK_Pacific_1_Lose_India" attachTo="Germans" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-      <option name="alliedOwnershipTerritories" value="Eastern India" count="1"/>
-    </attachment>
+
     <attachment name="conditionAttachment_ANZAC_1_Lose_New_South_Wales" attachTo="Germans" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
       <option name="alliedOwnershipTerritories" value="New South Wales" count="1"/>
     </attachment>
@@ -7065,14 +7023,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <option name="playerAttachmentName" value="PlayerAttachment" count="playerAttachment"/>
       <option name="playerProperty" value="destroysPUs" count="true"/>
     </attachment>
-    <attachment name="triggerUKPacificDestroyPUsGermans" attachTo="UK_Pacific" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-      <option name="conditions" value="conditionAttachment_UK_Pacific_1_Lose_India"/>
-      <option name="uses" value="1"/>
-      <option name="when" value="after:germansBattle"/>
-      <option name="players" value="UK_Pacific"/>
-      <option name="playerAttachmentName" value="PlayerAttachment" count="playerAttachment"/>
-      <option name="playerProperty" value="destroysPUs" count="true"/>
-    </attachment>
+
     <attachment name="triggerANZACDestroyPUsGermans" attachTo="ANZAC" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
       <option name="conditions" value="conditionAttachment_ANZAC_1_Lose_New_South_Wales"/>
       <option name="uses" value="1"/>
@@ -7113,14 +7064,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <option name="playerAttachmentName" value="PlayerAttachment" count="playerAttachment"/>
       <option name="playerProperty" value="destroysPUs" count="true"/>
     </attachment>
-    <attachment name="triggerUKPacificDestroyPUsItalians" attachTo="UK_Pacific" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-      <option name="conditions" value="conditionAttachment_UK_Pacific_1_Lose_India"/>
-      <option name="uses" value="1"/>
-      <option name="when" value="after:italiansBattle"/>
-      <option name="players" value="UK_Pacific"/>
-      <option name="playerAttachmentName" value="PlayerAttachment" count="playerAttachment"/>
-      <option name="playerProperty" value="destroysPUs" count="true"/>
-    </attachment>
+
     <attachment name="triggerANZACDestroyPUsItalians" attachTo="ANZAC" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
       <option name="conditions" value="conditionAttachment_ANZAC_1_Lose_New_South_Wales"/>
       <option name="uses" value="1"/>
@@ -7161,14 +7105,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <option name="playerAttachmentName" value="PlayerAttachment" count="playerAttachment"/>
       <option name="playerProperty" value="destroysPUs" count="true"/>
     </attachment>
-    <attachment name="triggerUKPacificDestroyPUsJapanese" attachTo="UK_Pacific" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-      <option name="conditions" value="conditionAttachment_UK_Pacific_1_Lose_India"/>
-      <option name="uses" value="1"/>
-      <option name="when" value="after:japaneseBattle"/>
-      <option name="players" value="UK_Pacific"/>
-      <option name="playerAttachmentName" value="PlayerAttachment" count="playerAttachment"/>
-      <option name="playerProperty" value="destroysPUs" count="true"/>
-    </attachment>
+
     <attachment name="triggerANZACDestroyPUsJapanese" attachTo="ANZAC" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
       <option name="conditions" value="conditionAttachment_ANZAC_1_Lose_New_South_Wales"/>
       <option name="uses" value="1"/>
@@ -14104,7 +14041,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <option name="relationshipChange" value="Japanese:Americans:anyNeutral:War"/>
       <option name="relationshipChange" value="Chinese:Americans:anyNeutral:Allied"/>
       <option name="relationshipChange" value="British:Americans:anyNeutral:Allied"/>
-      <option name="relationshipChange" value="UK_Pacific:Americans:anyNeutral:Allied"/>
+
       <option name="relationshipChange" value="ANZAC:Americans:anyNeutral:Allied"/>
       <option name="relationshipChange" value="Americans:French:anyNeutral:Allied"/>
       <option name="relationshipChange" value="Americans:Dutch:anyNeutral:Friendly"/>
@@ -14279,14 +14216,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <option name="suicideAttackResources" value="SuicideAttackTokens" count="2"/>
       <option name="suicideAttackTargets" value="battleship:carrier:cruiser:destroyer"/>
     </attachment>
-    <attachment name="playerAttachment" attachTo="UK_Pacific" javaClass="games.strategy.triplea.attachments.PlayerAttachment" type="player">
-      <!-- giveUnitControl allow multiple players to give units to multiple other players, if those units are in a designated territory 
-							must be a list of the player's names, in a ":" delimited list.  Example: value="Russians:Chinese"-->
-      <option name="giveUnitControl" value="British"/>
-    </attachment>
     <attachment name="playerAttachment" attachTo="British" javaClass="games.strategy.triplea.attachments.PlayerAttachment" type="player">
-      <option name="shareTechnology" value="UK_Pacific"/>
-      <option name="helpPayTechCost" value="UK_Pacific"/>
     </attachment>
     <attachment name="playerAttachment" attachTo="Chinese" javaClass="games.strategy.triplea.attachments.PlayerAttachment" type="player">
       <option name="immuneToBlockade" value="true"/>
@@ -14356,7 +14286,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <option name="relationshipChange" value="Italians:Neutral_True:War"/>
       <option name="relationshipChange" value="Japanese:Neutral_True:War"/>
       <option name="relationshipChange" value="Neutral_True:British:Friendly_Neutral"/>
-      <option name="relationshipChange" value="Neutral_True:UK_Pacific:Friendly_Neutral"/>
+
       <option name="relationshipChange" value="Neutral_True:ANZAC:Friendly_Neutral"/>
       <option name="relationshipChange" value="Neutral_True:Dutch:Friendly_Neutral"/>
       <option name="relationshipChange" value="Neutral_True:Chinese:Friendly_Neutral"/>
@@ -14367,7 +14297,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <option name="relationshipChange" value="Italians:Mongolians:War"/>
       <option name="relationshipChange" value="Japanese:Mongolians:War"/>
       <option name="relationshipChange" value="Mongolians:British:Friendly_Neutral"/>
-      <option name="relationshipChange" value="Mongolians:UK_Pacific:Friendly_Neutral"/>
+  
       <option name="relationshipChange" value="Mongolians:ANZAC:Friendly_Neutral"/>
       <option name="relationshipChange" value="Mongolians:Dutch:Friendly_Neutral"/>
       <option name="relationshipChange" value="Mongolians:Chinese:Friendly_Neutral"/>
@@ -14381,7 +14311,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <option name="relationshipChange" value="Italians:Neutral_True:War"/>
       <option name="relationshipChange" value="Japanese:Neutral_True:War"/>
       <option name="relationshipChange" value="Neutral_True:British:Friendly_Neutral"/>
-      <option name="relationshipChange" value="Neutral_True:UK_Pacific:Friendly_Neutral"/>
+
       <option name="relationshipChange" value="Neutral_True:ANZAC:Friendly_Neutral"/>
       <option name="relationshipChange" value="Neutral_True:Dutch:Friendly_Neutral"/>
       <option name="relationshipChange" value="Neutral_True:Chinese:Friendly_Neutral"/>
@@ -14392,7 +14322,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <option name="relationshipChange" value="Italians:Mongolians:War"/>
       <option name="relationshipChange" value="Japanese:Mongolians:War"/>
       <option name="relationshipChange" value="Mongolians:British:Friendly_Neutral"/>
-      <option name="relationshipChange" value="Mongolians:UK_Pacific:Friendly_Neutral"/>
+
       <option name="relationshipChange" value="Mongolians:ANZAC:Friendly_Neutral"/>
       <option name="relationshipChange" value="Mongolians:Dutch:Friendly_Neutral"/>
       <option name="relationshipChange" value="Mongolians:Chinese:Friendly_Neutral"/>
@@ -14406,7 +14336,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <option name="relationshipChange" value="Italians:Neutral_True:War"/>
       <option name="relationshipChange" value="Japanese:Neutral_True:War"/>
       <option name="relationshipChange" value="Neutral_True:British:Friendly_Neutral"/>
-      <option name="relationshipChange" value="Neutral_True:UK_Pacific:Friendly_Neutral"/>
+
       <option name="relationshipChange" value="Neutral_True:ANZAC:Friendly_Neutral"/>
       <option name="relationshipChange" value="Neutral_True:Dutch:Friendly_Neutral"/>
       <option name="relationshipChange" value="Neutral_True:Chinese:Friendly_Neutral"/>
@@ -14417,7 +14347,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <option name="relationshipChange" value="Italians:Mongolians:War"/>
       <option name="relationshipChange" value="Japanese:Mongolians:War"/>
       <option name="relationshipChange" value="Mongolians:British:Friendly_Neutral"/>
-      <option name="relationshipChange" value="Mongolians:UK_Pacific:Friendly_Neutral"/>
+
       <option name="relationshipChange" value="Mongolians:ANZAC:Friendly_Neutral"/>
       <option name="relationshipChange" value="Mongolians:Dutch:Friendly_Neutral"/>
       <option name="relationshipChange" value="Mongolians:Chinese:Friendly_Neutral"/>
@@ -14429,7 +14359,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
     <attachment name="politicalActionAttachment_Allies_To_War_With_Mongolians" attachTo="Russians" javaClass="games.strategy.triplea.attachments.PoliticalActionAttachment" type="player">
       <option name="conditions" value="conditionAttachment_Russians_May_Declare_War_On_Mongolians"/>
       <option name="relationshipChange" value="British:Mongolians:War"/>
-      <option name="relationshipChange" value="UK_Pacific:Mongolians:War"/>
+
       <option name="relationshipChange" value="ANZAC:Mongolians:War"/>
       <option name="relationshipChange" value="Dutch:Mongolians:War"/>
       <option name="relationshipChange" value="Chinese:Mongolians:War"/>
@@ -14445,7 +14375,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
     <attachment name="politicalActionAttachment_Allies_To_War_With_TrueNeutrals" attachTo="British" javaClass="games.strategy.triplea.attachments.PoliticalActionAttachment" type="player">
       <option name="conditions" value="conditionAttachment_British_Not_Yet_At_War_With_TrueNeutrals"/>
       <option name="relationshipChange" value="British:Neutral_True:War"/>
-      <option name="relationshipChange" value="UK_Pacific:Neutral_True:War"/>
+
       <option name="relationshipChange" value="ANZAC:Neutral_True:War"/>
       <option name="relationshipChange" value="Dutch:Neutral_True:War"/>
       <option name="relationshipChange" value="Chinese:Neutral_True:War"/>
@@ -14460,7 +14390,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
     <attachment name="politicalActionAttachment_Allies_To_War_With_TrueNeutrals" attachTo="ANZAC" javaClass="games.strategy.triplea.attachments.PoliticalActionAttachment" type="player">
       <option name="conditions" value="conditionAttachment_British_Not_Yet_At_War_With_TrueNeutrals"/>
       <option name="relationshipChange" value="British:Neutral_True:War"/>
-      <option name="relationshipChange" value="UK_Pacific:Neutral_True:War"/>
+
       <option name="relationshipChange" value="ANZAC:Neutral_True:War"/>
       <option name="relationshipChange" value="Dutch:Neutral_True:War"/>
       <option name="relationshipChange" value="Chinese:Neutral_True:War"/>
@@ -14475,7 +14405,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
     <attachment name="politicalActionAttachment_Allies_To_War_With_TrueNeutrals" attachTo="French" javaClass="games.strategy.triplea.attachments.PoliticalActionAttachment" type="player">
       <option name="conditions" value="conditionAttachment_British_Not_Yet_At_War_With_TrueNeutrals"/>
       <option name="relationshipChange" value="British:Neutral_True:War"/>
-      <option name="relationshipChange" value="UK_Pacific:Neutral_True:War"/>
+
       <option name="relationshipChange" value="ANZAC:Neutral_True:War"/>
       <option name="relationshipChange" value="Dutch:Neutral_True:War"/>
       <option name="relationshipChange" value="Chinese:Neutral_True:War"/>
@@ -14490,7 +14420,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
     <attachment name="politicalActionAttachment_Allies_To_War_With_TrueNeutrals" attachTo="Russians" javaClass="games.strategy.triplea.attachments.PoliticalActionAttachment" type="player">
       <option name="conditions" value="conditionAttachment_British_Not_Yet_At_War_With_TrueNeutrals:conditionAttachment_Germans_At_War_With_Russians"/>
       <option name="relationshipChange" value="British:Neutral_True:War"/>
-      <option name="relationshipChange" value="UK_Pacific:Neutral_True:War"/>
+
       <option name="relationshipChange" value="ANZAC:Neutral_True:War"/>
       <option name="relationshipChange" value="Dutch:Neutral_True:War"/>
       <option name="relationshipChange" value="Chinese:Neutral_True:War"/>
@@ -14506,7 +14436,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
     <attachment name="politicalActionAttachment_Allies_To_War_With_TrueNeutrals" attachTo="Americans" javaClass="games.strategy.triplea.attachments.PoliticalActionAttachment" type="player">
       <option name="conditions" value="conditionAttachment_British_Not_Yet_At_War_With_TrueNeutrals:conditionAttachment_Americans_At_War_With_At_Least_One_Axis"/>
       <option name="relationshipChange" value="British:Neutral_True:War"/>
-      <option name="relationshipChange" value="UK_Pacific:Neutral_True:War"/>
+
       <option name="relationshipChange" value="ANZAC:Neutral_True:War"/>
       <option name="relationshipChange" value="Dutch:Neutral_True:War"/>
       <option name="relationshipChange" value="Chinese:Neutral_True:War"/>
@@ -14525,7 +14455,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <option name="relationshipChange" value="Russians:Chinese:Allied"/>
       <option name="relationshipChange" value="Russians:ANZAC:Allied"/>
       <option name="relationshipChange" value="Russians:Dutch:Friendly"/>
-      <option name="relationshipChange" value="Russians:UK_Pacific:Allied"/>
+
       <option name="text" value="Japanese_War_Russians"/>
     </attachment>
     <attachment name="politicalActionAttachment_Russians_To_War_With_Japanese" attachTo="Russians" javaClass="games.strategy.triplea.attachments.PoliticalActionAttachment" type="player">
@@ -14534,7 +14464,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <option name="relationshipChange" value="Russians:Chinese:Allied"/>
       <option name="relationshipChange" value="Russians:ANZAC:Allied"/>
       <option name="relationshipChange" value="Russians:Dutch:Friendly"/>
-      <option name="relationshipChange" value="Russians:UK_Pacific:Allied"/>
+
       <option name="text" value="Russians_War_Japanese"/>
     </attachment>
     <attachment name="politicalActionAttachment_Chinese_To_War_With_Germans" attachTo="Chinese" javaClass="games.strategy.triplea.attachments.PoliticalActionAttachment" type="player">
@@ -14573,7 +14503,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <option name="conditions" value="conditionAttachment_Germans_Not_At_War_With_Russians"/>
       <option name="relationshipChange" value="Germans:Russians:War"/>
       <option name="relationshipChange" value="Russians:British:Allied"/>
-      <option name="relationshipChange" value="Russians:UK_Pacific:Allied"/>
+
       <option name="relationshipChange" value="Russians:ANZAC:Allied"/>
       <option name="relationshipChange" value="Russians:French:Allied"/>
       <option name="relationshipChange" value="Russians:Neutral_Allies:Friendly_Neutral"/>
@@ -14584,7 +14514,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <option name="conditions" value="conditionAttachment_Italians_Not_At_War_With_Russians"/>
       <option name="relationshipChange" value="Italians:Russians:War"/>
       <option name="relationshipChange" value="Russians:British:Allied"/>
-      <option name="relationshipChange" value="Russians:UK_Pacific:Allied"/>
+
       <option name="relationshipChange" value="Russians:ANZAC:Allied"/>
       <option name="relationshipChange" value="Russians:French:Allied"/>
       <option name="relationshipChange" value="Russians:Neutral_Allies:Friendly_Neutral"/>
@@ -14595,7 +14525,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <option name="conditions" value="conditionAttachment_Germans_Not_At_War_With_Russians:conditionAttachment_Russians_May_Declare_War_On_European_Axis"/>
       <option name="relationshipChange" value="Germans:Russians:War"/>
       <option name="relationshipChange" value="Russians:British:Allied"/>
-      <option name="relationshipChange" value="Russians:UK_Pacific:Allied"/>
+
       <option name="relationshipChange" value="Russians:ANZAC:Allied"/>
       <option name="relationshipChange" value="Russians:French:Allied"/>
       <option name="relationshipChange" value="Russians:Neutral_Allies:Friendly_Neutral"/>
@@ -14606,7 +14536,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <option name="conditions" value="conditionAttachment_Italians_Not_At_War_With_Russians:conditionAttachment_Russians_May_Declare_War_On_European_Axis"/>
       <option name="relationshipChange" value="Italians:Russians:War"/>
       <option name="relationshipChange" value="Russians:British:Allied"/>
-      <option name="relationshipChange" value="Russians:UK_Pacific:Allied"/>
+
       <option name="relationshipChange" value="Russians:ANZAC:Allied"/>
       <option name="relationshipChange" value="Russians:French:Allied"/>
       <option name="relationshipChange" value="Russians:Neutral_Allies:Friendly_Neutral"/>
@@ -14616,11 +14546,11 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
     <attachment name="politicalActionAttachment_British_To_War_With_Japanese" attachTo="British" javaClass="games.strategy.triplea.attachments.PoliticalActionAttachment" type="player">
       <option name="conditions" value="conditionAttachment_British_Not_Yet_At_War_With_Japanese"/>
       <option name="relationshipChange" value="Japanese:British:Unprovoked"/>
-      <option name="relationshipChange" value="Japanese:UK_Pacific:Unprovoked"/>
+
       <option name="relationshipChange" value="Japanese:ANZAC:Unprovoked"/>
       <option name="relationshipChange" value="Japanese:Dutch:War"/>
       <option name="relationshipChange" value="Chinese:British:Allied"/>
-      <option name="relationshipChange" value="Chinese:UK_Pacific:Allied"/>
+
       <option name="relationshipChange" value="Chinese:ANZAC:Allied"/>
       <option name="relationshipChange" value="Chinese:Dutch:Friendly"/>
       <option name="text" value="British_War_Japanese"/>
@@ -14628,11 +14558,11 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
     <attachment name="politicalActionAttachment_ANZAC_To_War_With_Japanese" attachTo="ANZAC" javaClass="games.strategy.triplea.attachments.PoliticalActionAttachment" type="player">
       <option name="conditions" value="conditionAttachment_British_Not_Yet_At_War_With_Japanese"/>
       <option name="relationshipChange" value="Japanese:British:Unprovoked"/>
-      <option name="relationshipChange" value="Japanese:UK_Pacific:Unprovoked"/>
+
       <option name="relationshipChange" value="Japanese:ANZAC:Unprovoked"/>
       <option name="relationshipChange" value="Japanese:Dutch:War"/>
       <option name="relationshipChange" value="Chinese:British:Allied"/>
-      <option name="relationshipChange" value="Chinese:UK_Pacific:Allied"/>
+
       <option name="relationshipChange" value="Chinese:ANZAC:Allied"/>
       <option name="relationshipChange" value="Chinese:Dutch:Friendly"/>
       <option name="text" value="British_War_Japanese"/>
@@ -14641,7 +14571,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <option name="conditions" value="conditionAttachment_British_Not_Yet_At_War_With_Japanese:conditionAttachment_Japanese_Not_Yet_At_War_With_Americans"/>
       <option name="relationshipChange" value="Japanese:Americans:War"/>
       <option name="relationshipChange" value="Japanese:British:War"/>
-      <option name="relationshipChange" value="Japanese:UK_Pacific:War"/>
+
       <option name="relationshipChange" value="Japanese:ANZAC:War"/>
       <option name="relationshipChange" value="Japanese:Dutch:War"/>
       <option name="relationshipChange" value="Japanese:French:War"/>
@@ -14649,12 +14579,12 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <option name="relationshipChange" value="Italians:Americans:War"/>
       <option name="relationshipChange" value="Chinese:Americans:Allied"/>
       <option name="relationshipChange" value="Chinese:British:Allied"/>
-      <option name="relationshipChange" value="Chinese:UK_Pacific:Allied"/>
+      
       <option name="relationshipChange" value="Chinese:French:Allied"/>
       <option name="relationshipChange" value="Chinese:ANZAC:Allied"/>
       <option name="relationshipChange" value="Chinese:Dutch:Friendly"/>
       <option name="relationshipChange" value="British:Americans:Allied"/>
-      <option name="relationshipChange" value="UK_Pacific:Americans:Allied"/>
+
       <option name="relationshipChange" value="ANZAC:Americans:Allied"/>
       <option name="relationshipChange" value="Americans:French:Allied"/>
       <option name="relationshipChange" value="Americans:Dutch:Friendly"/>
@@ -14665,11 +14595,11 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
     <attachment name="politicalActionAttachment_Japanese_To_War_With_British_And_ANZAC" attachTo="Japanese" javaClass="games.strategy.triplea.attachments.PoliticalActionAttachment" type="player">
       <option name="conditions" value="conditionAttachment_British_Not_Yet_At_War_With_Japanese"/>
       <option name="relationshipChange" value="Japanese:British:War"/>
-      <option name="relationshipChange" value="Japanese:UK_Pacific:War"/>
+      
       <option name="relationshipChange" value="Japanese:ANZAC:War"/>
       <option name="relationshipChange" value="Japanese:Dutch:War"/>
       <option name="relationshipChange" value="Chinese:British:Allied"/>
-      <option name="relationshipChange" value="Chinese:UK_Pacific:Allied"/>
+      
       <option name="relationshipChange" value="Chinese:ANZAC:Allied"/>
       <option name="relationshipChange" value="Chinese:Dutch:Friendly"/>
       <option name="text" value="Japanese_War_UK"/>
@@ -14679,7 +14609,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <option name="relationshipChange" value="Japanese:Americans:War"/>
       <option name="relationshipChange" value="Chinese:Americans:Allied"/>
       <option name="relationshipChange" value="British:Americans:Allied"/>
-      <option name="relationshipChange" value="UK_Pacific:Americans:Allied"/>
+      
       <option name="relationshipChange" value="ANZAC:Americans:Allied"/>
       <option name="relationshipChange" value="Americans:French:Allied"/>
       <option name="relationshipChange" value="Americans:Dutch:Friendly"/>
@@ -14692,7 +14622,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <option name="relationshipChange" value="Germans:Americans:War"/>
       <option name="relationshipChange" value="Chinese:Americans:Allied"/>
       <option name="relationshipChange" value="British:Americans:Allied"/>
-      <option name="relationshipChange" value="UK_Pacific:Americans:Allied"/>
+      
       <option name="relationshipChange" value="ANZAC:Americans:Allied"/>
       <option name="relationshipChange" value="Americans:French:Allied"/>
       <option name="relationshipChange" value="Americans:Dutch:Friendly"/>
@@ -14705,7 +14635,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <option name="relationshipChange" value="Italians:Americans:War"/>
       <option name="relationshipChange" value="Chinese:Americans:Allied"/>
       <option name="relationshipChange" value="British:Americans:Allied"/>
-      <option name="relationshipChange" value="UK_Pacific:Americans:Allied"/>
+      
       <option name="relationshipChange" value="ANZAC:Americans:Allied"/>
       <option name="relationshipChange" value="Americans:French:Allied"/>
       <option name="relationshipChange" value="Americans:Dutch:Friendly"/>
@@ -14718,7 +14648,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <option name="relationshipChange" value="Japanese:Americans:War"/>
       <option name="relationshipChange" value="Chinese:Americans:Allied"/>
       <option name="relationshipChange" value="British:Americans:Allied"/>
-      <option name="relationshipChange" value="UK_Pacific:Americans:Allied"/>
+      
       <option name="relationshipChange" value="ANZAC:Americans:Allied"/>
       <option name="relationshipChange" value="Americans:French:Allied"/>
       <option name="relationshipChange" value="Americans:Dutch:Friendly"/>
@@ -14731,7 +14661,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <option name="relationshipChange" value="Germans:Americans:War"/>
       <option name="relationshipChange" value="Chinese:Americans:Allied"/>
       <option name="relationshipChange" value="British:Americans:Allied"/>
-      <option name="relationshipChange" value="UK_Pacific:Americans:Allied"/>
+      
       <option name="relationshipChange" value="ANZAC:Americans:Allied"/>
       <option name="relationshipChange" value="Americans:French:Allied"/>
       <option name="relationshipChange" value="Americans:Dutch:Friendly"/>
@@ -14744,7 +14674,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <option name="relationshipChange" value="Italians:Americans:War"/>
       <option name="relationshipChange" value="Chinese:Americans:Allied"/>
       <option name="relationshipChange" value="British:Americans:Allied"/>
-      <option name="relationshipChange" value="UK_Pacific:Americans:Allied"/>
+      
       <option name="relationshipChange" value="ANZAC:Americans:Allied"/>
       <option name="relationshipChange" value="Americans:French:Allied"/>
       <option name="relationshipChange" value="Americans:Dutch:Friendly"/>
@@ -14863,7 +14793,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
                         <territoryOwner territory="Kiangsi" owner="Chinese"/>
                         <territoryOwner territory="Hunan" owner="Chinese"/>
                         <territoryOwner territory="Eastern Sinkiang" owner="Chinese"/>
-                        <territoryOwner territory="Kwangtung" owner="UK_Pacific"/>
+                        <territoryOwner territory="Kwangtung" owner="ANZAC"/>
                         <territoryOwner territory="Inner Mongolia" owner="Chinese"/>
                         <territoryOwner territory="Yunnan" owner="Chinese"/>
                         <territoryOwner territory="Himalayas" owner="Chinese"/>
@@ -15421,7 +15351,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <relationship player1="Germans" player2="Americans" type="Neutrality" roundValue="1"/>
       <relationship player1="Germans" player2="Chinese" type="Neutrality" roundValue="1"/>
       <relationship player1="Germans" player2="British" type="War" roundValue="1"/>
-      <relationship player1="Germans" player2="UK_Pacific" type="War" roundValue="1"/>
+      
       <relationship player1="Germans" player2="Italians" type="Allied" roundValue="1"/>
       <relationship player1="Germans" player2="ANZAC" type="War" roundValue="1"/>
       <relationship player1="Germans" player2="French" type="War" roundValue="1"/>
@@ -15434,7 +15364,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <relationship player1="Russians" player2="Americans" type="Neutrality" roundValue="1"/>
       <relationship player1="Russians" player2="Chinese" type="Neutrality" roundValue="1"/>
       <relationship player1="Russians" player2="British" type="Neutrality" roundValue="1"/>
-      <relationship player1="Russians" player2="UK_Pacific" type="Neutrality" roundValue="1"/>
+      
       <relationship player1="Russians" player2="Italians" type="Neutrality" roundValue="1"/>
       <relationship player1="Russians" player2="ANZAC" type="Neutrality" roundValue="1"/>
       <relationship player1="Russians" player2="French" type="Neutrality" roundValue="1"/>
@@ -15446,7 +15376,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <relationship player1="Japanese" player2="Americans" type="Neutrality" roundValue="1"/>
       <relationship player1="Japanese" player2="Chinese" type="War" roundValue="1"/>
       <relationship player1="Japanese" player2="British" type="Neutrality" roundValue="1"/>
-      <relationship player1="Japanese" player2="UK_Pacific" type="Neutrality" roundValue="1"/>
+      
       <relationship player1="Japanese" player2="Italians" type="Allied" roundValue="1"/>
       <relationship player1="Japanese" player2="ANZAC" type="Neutrality" roundValue="1"/>
       <relationship player1="Japanese" player2="French" type="Neutrality" roundValue="1"/>
@@ -15457,7 +15387,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <relationship player1="Japanese" player2="Mongolians" type="Strict_Neutral" roundValue="1"/>
       <relationship player1="Americans" player2="Chinese" type="Neutrality" roundValue="1"/>
       <relationship player1="Americans" player2="British" type="Neutrality" roundValue="1"/>
-      <relationship player1="Americans" player2="UK_Pacific" type="Neutrality" roundValue="1"/>
+
       <relationship player1="Americans" player2="Italians" type="Neutrality" roundValue="1"/>
       <relationship player1="Americans" player2="ANZAC" type="Neutrality" roundValue="1"/>
       <relationship player1="Americans" player2="French" type="Neutrality" roundValue="1"/>
@@ -15467,7 +15397,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <relationship player1="Americans" player2="Neutral_True" type="Strict_Neutral" roundValue="1"/>
       <relationship player1="Americans" player2="Mongolians" type="Strict_Neutral" roundValue="1"/>
       <relationship player1="Chinese" player2="British" type="Neutrality" roundValue="1"/>
-      <relationship player1="Chinese" player2="UK_Pacific" type="Concordant" roundValue="1"/>
+
       <relationship player1="Chinese" player2="Italians" type="Neutrality" roundValue="1"/>
       <relationship player1="Chinese" player2="ANZAC" type="Neutrality" roundValue="1"/>
       <relationship player1="Chinese" player2="French" type="Neutrality" roundValue="1"/>
@@ -15476,7 +15406,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <relationship player1="Chinese" player2="Neutral_Allies" type="Friendly_Neutral" roundValue="1"/>
       <relationship player1="Chinese" player2="Neutral_True" type="Strict_Neutral" roundValue="1"/>
       <relationship player1="Chinese" player2="Mongolians" type="Strict_Neutral" roundValue="1"/>
-      <relationship player1="British" player2="UK_Pacific" type="Allied" roundValue="1"/>
+
       <relationship player1="British" player2="Italians" type="War" roundValue="1"/>
       <relationship player1="British" player2="ANZAC" type="Allied" roundValue="1"/>
       <relationship player1="British" player2="French" type="Allied" roundValue="1"/>
@@ -15485,14 +15415,7 @@ value="infantry:artillery:mech_infantry:armour:aaGun:marine" count="1"/>
       <relationship player1="British" player2="Neutral_Allies" type="Friendly_Neutral" roundValue="1"/>
       <relationship player1="British" player2="Neutral_True" type="Strict_Neutral" roundValue="1"/>
       <relationship player1="British" player2="Mongolians" type="Strict_Neutral" roundValue="1"/>
-      <relationship player1="UK_Pacific" player2="Italians" type="War" roundValue="1"/>
-      <relationship player1="UK_Pacific" player2="ANZAC" type="Allied" roundValue="1"/>
-      <relationship player1="UK_Pacific" player2="French" type="Allied" roundValue="1"/>
-      <relationship player1="UK_Pacific" player2="Dutch" type="Custodianship" roundValue="1"/>
-      <relationship player1="UK_Pacific" player2="Neutral_Axis" type="Unfriendly_Neutral" roundValue="1"/>
-      <relationship player1="UK_Pacific" player2="Neutral_Allies" type="Friendly_Neutral" roundValue="1"/>
-      <relationship player1="UK_Pacific" player2="Neutral_True" type="Strict_Neutral" roundValue="1"/>
-      <relationship player1="UK_Pacific" player2="Mongolians" type="Strict_Neutral" roundValue="1"/>
+
       <relationship player1="Italians" player2="ANZAC" type="War" roundValue="1"/>
       <relationship player1="Italians" player2="French" type="War" roundValue="1"/>
       <relationship player1="Italians" player2="Dutch" type="War" roundValue="1"/>
@@ -16176,6 +16099,7 @@ Revised Game Notes to clarify that the harbor in Southern France may be used by 
                 </property>
         </propertyList>
 </game>
+
 
 
 
